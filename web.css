@@ -107,7 +107,12 @@
   .m {
     margin-left: 150px;
   }
+  
 
+}
+
+.inq{
+  width: 65%;
 }
 
 input[type=text] {
