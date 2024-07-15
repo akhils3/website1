@@ -23,8 +23,12 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     
         </head>
-        <style>
-#header {
+          <style>
+
+
+
+@media(max-width:1280px){
+  #header {
   position: sticky;
   top: 0;
   left: 0;
@@ -34,6 +38,22 @@
 
 #header.hidden {
   top: -120px; /* hide the header by moving it up */
+}
+}
+
+
+@media(max-width:750px){
+  #aheader {
+  
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: top 0.5s; /* add a smooth transition effect */
+}
+
+#aheadr.hidden {
+  top: -120px; /* hide the header by moving it up */
+}
 }
 
         </style>
@@ -64,7 +84,7 @@
         </div>
         </div>
     
-        <div id="header" class="container bgc" style="z-index:99;">
+        <div id="header" class="container bgc" >
         <!--------start header---------->  
       <div class="row">
 
@@ -159,7 +179,7 @@
                               <li><a class="dropdown-item" href="BlowerSeal.html">Blower Seal</a></li>
                               <li><a class="dropdown-item" href="CartridgeSeal.html">Cartridge Seal</a></li>
                               <li><a class="dropdown-item" href="VerticleLongShaftSumpPumps.html">Verticle Long Shaft Pumps</a></li>
-
+                              <li><a class="dropdown-item" href="Impellers.html">Impellers</a></li>
                               </ul>
                             </li>
             
@@ -304,12 +324,3 @@ window.addEventListener('scroll', () => {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
