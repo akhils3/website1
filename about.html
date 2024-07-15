@@ -143,7 +143,9 @@
                     <a class="nav-link dropdown-toggle cw"href="#"role="button"data-bs-toggle="dropdown">Product</a>
                                 <ul class="dropdown-menu">
                                   <li><a class="dropdown-item" href="MechanicalSeals.html">MechanicalSeals</a></li>
-                                  <li><a class="dropdown-item" href="#">Another link</a></li>
+                                  <li><a class="dropdown-item" href="AgitatorSeals.html">Agitator Seals</a></li>
+                                <li><a class="dropdown-item" href="ShaftSeal.html">Shaft Seal</a></li>
+
                                 </ul>
                               </li>
               
@@ -620,25 +622,36 @@
 
 
 <script>
-          // Get the tabs and tab contents
-          const tabs = document.querySelectorAll('.tab');
-          const tabContents = document.querySelectorAll('.tab-content');
-          
-          // Add event listeners to the tabs
-          tabs.forEach((tab, index) => {
-            tab.addEventListener('click', () => {
-              // Hide all tab contents
-              tabContents.forEach((tabContent) => {
-                tabContent.classList.remove('active');
-              });
-          
-              // Show the corresponding tab content
-              tabContents[index].classList.add('active');
-            });
-          });
-   
-          const counters = document.querySelectorAll('.counter');
-        const values = [202, 25, 16, 98];
+const tabs = document.querySelectorAll('.tab');
+const tabContents = document.querySelectorAll('.tab-content');
+
+// Make the first tab active by default
+tabs[0].classList.add('active');
+tabContents[0].classList.add('active');
+tabContents[0].classList.remove('disabled');
+
+// Add event listeners to the tabs
+tabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    // Hide all tab contents
+    tabContents.forEach((tabContent) => {
+      tabContent.classList.remove('active');
+      tabContent.classList.remove('disabled');
+    });
+
+    // Show the corresponding tab content
+    tabContents[index].classList.add('active');
+
+    // Disable the extra box
+    if (index > 0) {
+      tabContents[index].classList.add('disabled');
+    }
+  });
+});
+        
+
+const counters = document.querySelectorAll('.counter'); 
+const values = [202, 25, 16, 98];
    
    counters.forEach((counter, index) => {
     let count = 0;

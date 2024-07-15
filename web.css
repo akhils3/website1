@@ -107,7 +107,10 @@
   .m {
     margin-left: 150px;
   }
-  
+
+  .br{
+    break-before: always;
+  }
 
 }
 
@@ -322,3 +325,11 @@ select:focus {
 }
 
 /* about page */
+
+.grc{
+  background: -webkit-linear-gradient(to right, #6FB1FC, #000000, #00d419);  
+  background: linear-gradient(to right, #fc6f6f, #e843f7, #3a4e6e); 
+  
+  }
+
+
