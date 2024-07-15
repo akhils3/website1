@@ -53,7 +53,7 @@
     </div>
     </div>
 
-        <!--------start header---------->  
+      <!--------start header---------->
     <div class="container bgc "style="position: relative; left: 0px; top: 20px;">
         <div class="row">
 
@@ -87,7 +87,8 @@
                       
                       
 
-                        <button class="tab bg-transparent border-0" style="height: 100px; width:80px;"><img src="pic/download (30).jpg" alt="" class="col-md-12 mt-md-5 ms-md-2 col-12"></button>
+                        <button class="tab bg-transparent border-0" style="height: 100px; width:80px;">
+                          <img src="pic/download (30).jpg" alt="" class="col-md-12 mt-md-5 ms-md-2 col-12"></button>
 
 
                     </div>
@@ -624,33 +625,50 @@
 
 
 <script>
-const tabs = document.querySelectorAll('.tab');
-const tabContents = document.querySelectorAll('.tab-content');
+// const tabs = document.querySelectorAll('.tab');
+// const tabContents = document.querySelectorAll('.tab-content');
 
-// Make the first tab active by default
-tabs[0].classList.add('active');
-tabContents[0].classList.add('active');
-tabContents[0].classList.remove('disabled');
+// // Make the first tab active by default
+// tabs[0].classList.add('active');
+// tabContents[0].classList.add('active');
+// tabContents[0].classList.remove('disabled');
 
-// Add event listeners to the tabs
-tabs.forEach((tab, index) => {
-  tab.addEventListener('click', () => {
-    // Hide all tab contents
-    tabContents.forEach((tabContent) => {
-      tabContent.classList.remove('active');
-      tabContent.classList.remove('disabled');
-    });
+// // Add event listeners to the tabs
+// tabs.forEach((tab, index) => {
+//   tab.addEventListener('click', () => {
+//     // Hide all tab contents
+//     tabContents.forEach((tabContent) => {
+//       tabContent.classList.remove('active');
+//       tabContent.classList.remove('disabled');
+//     });
 
-    // Show the corresponding tab content
-    tabContents[index].classList.add('active');
+//     // Show the corresponding tab content
+//     tabContents[index].classList.add('active');
 
-    // Disable the extra box
-    if (index > 0) {
-      tabContents[index].classList.add('disabled');
-    }
-  });
-});
+//     // Disable the extra box
+//     if (index > 0) {
+//       tabContents[index].classList.add('disabled');
+//     }
+//   });
+// });
         
+
+        // Get the tabs and tab contents
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        // Add event listeners to the tabs
+        tabs.forEach((tab, index) => {
+          tab.addEventListener('click', () => {
+            // Hide all tab contents
+            tabContents.forEach((tabContent) => {
+              tabContent.classList.remove('active');
+            });
+        
+            // Show the corresponding tab content
+            tabContents[index].classList.add('active');
+          });
+        });
 
 const counters = document.querySelectorAll('.counter'); 
 const values = [202, 25, 16, 98];
