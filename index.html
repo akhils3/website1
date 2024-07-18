@@ -15,6 +15,54 @@
 
     <link rel="stylesheet" href="web.css">
     <link rel="icon" type="image/x-icon" href="pic/medal.png">
+
+    <style>
+             
+.slider {
+  position: relative;
+  width: 500px; 
+  height: 300px; 
+  margin: 30px auto;
+  overflow: hidden;
+}
+
+.slider-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+  width: 100%; 
+  height: 100%;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #666;
+}
+    </style>
 </head>
 
 <body class="m-0">
@@ -208,25 +256,60 @@
        
             <div class="col-md-2">
                
-               <h2 class="ms-5"> OUR</h2> <h2 style="color: #f2d157;" class="ms-5">Product</h2>
+               <h2 class="ms-5 mt-5"> OUR</h2> <h2 style="color: #f2d157;" class="ms-5">Product</h2>
 
             </div>
-            <div class="col-md-2  col-6 ms-md-5">
-                <img src="pic/download (9).jpg" alt="" class="col-md-12 col-12 ms-md-5">
-            </div>
-            <div class="col-md-2 col-6 ms-md-2 ">
-                <img src="pic/download (10).jpg" alt="" class="col-md-12 col-12 ms-md-5">
 
+            <div class="slider">
+              <div class="slider-wrapper">
+                <div class="slider-item">
+                  <img src="pic/download (12).jpg" alt="Image 1" >  
+                </div>
+                <div class="slider-item">
+                  <img src="pic/download (8).jpg" alt="Image 2" >
+                </div>
+                <div class="slider-item">
+                  <img src="pic/download (10).jpg" alt="Image 3" >
+                </div>
+                <div class="slider-item">
+                  <img src="pic/download (9).jpg" alt="Image 4" >
+                </div>
+                <div class="slider-item">
+                  <img src="pic/pump-impeller-sand-casting.jpg" alt="Image 5" >
+                </div>
+                <div class="slider-item">
+                  <img src="pic/download (13).jpg" alt="Image 6" >
+                </div>
+              </div>
+              <div class="dots">
+              </div>
             </div>
-            <div class="col-md-2 col-6 ms-md-2 ">
-                <img src="pic/download (8).jpg" alt="" class="col-md-12 col-12 ms-md-5">
 
-            </div>
-            <div class="col-md-2 col-6 ms-md-2 ">
-                <img src="pic/download (12).jpg" alt="" class="col-md-12 col-12 ms-md-5">
 
-            </div>
-                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
         </div>
         
@@ -375,6 +458,72 @@
                 tabContents[index].classList.add('active');
               });
             });
+
+
+            const slider = document.querySelector('.slider');
+const sliderWrapper = document.querySelector('.slider-wrapper');
+const sliderItems = document.querySelectorAll('.slider-item');
+const dotsContainer = document.querySelector('.dots');
+
+let currentPosition = 0;
+
+sliderItems.forEach((item, index) => {
+  const dot = document.createElement('div');
+  dot.className = 'dot';
+  if (index === 0) dot.classList.add('active');
+  dotsContainer.appendChild(dot);
+});
+
+function nextSlide() {
+  currentPosition++;
+  if (currentPosition >= sliderItems.length) {
+    currentPosition = 0;
+  }
+  sliderWrapper.style.transform = `translateX(-${currentPosition * 50}%)`;
+  updateDots();
+}
+
+function updateDots() {
+  const dots = document.querySelectorAll('.dot');
+  dots.forEach((dot, index) => {
+    if (index === currentPosition) {
+      dot.classList.add('active');
+    } else {
+      dot.classList.remove('active');
+    }
+  });
+}
+
+setInterval(nextSlide, 3000);
+
+dotsContainer.addEventListener('click', (e) => {
+  if (e.target.classList.contains('dot')) {
+    const index = Array.prototype.indexOf.call(dotsContainer.children, e.target);
+    currentPosition = index;
+    sliderWrapper.style.transform = `translateX(-${currentPosition * 50}%)`;
+    updateDots();
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
     
 
